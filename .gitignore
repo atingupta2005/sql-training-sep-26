@@ -1,0 +1,9 @@
+# Student GitHub publish list (allowlist)
+# Everything else in this workspace stays local (trainer / lab only).
+
+/*
+!/.gitignore
+!/README.md
+!/course-content.md
+!/labs/
+.local/

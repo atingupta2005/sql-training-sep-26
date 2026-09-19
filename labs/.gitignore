@@ -1,0 +1,4 @@
+*
+!.gitignore
+!01_Relational_Model_Basic_SQL.ipynb
+!02_Joins_Aggregations.ipynb
