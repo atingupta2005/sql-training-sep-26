@@ -4,3 +4,6 @@
 !02_Joins_Aggregations.ipynb
 !03_Window_CTE_Subqueries.ipynb
 !04_Indexes_Query_Optimization.ipynb
+!diagrams/
+!diagrams/*.svg
+
