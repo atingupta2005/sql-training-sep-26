@@ -2,3 +2,5 @@
 !.gitignore
 !01_Relational_Model_Basic_SQL.ipynb
 !02_Joins_Aggregations.ipynb
+!03_Window_CTE_Subqueries.ipynb
+!04_Indexes_Query_Optimization.ipynb

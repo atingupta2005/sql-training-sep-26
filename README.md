@@ -3,7 +3,7 @@
 Course materials for the SQL training.
 
 - Syllabus: **`course-content.md`**
-- Labs on GitHub: **`labs/`** (Sessions **1–2** notebooks; later sessions shared in class)
+- Labs on GitHub: **`labs/`** (Sessions **1–4** notebooks; Session 5 shared in class)
 
 Use your own MySQL with the sample database **`training`**. Run the SQL from each notebook in DBeaver (or any MySQL client).
 
