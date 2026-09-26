@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520" role="img">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <style>
+  .title { font: 700 18px Segoe UI, Arial, sans-serif; fill: #1f2937; }
+  .label { font: 700 13px Segoe UI, Arial, sans-serif; fill: #111827; }
+  .small { font: 12px Consolas, 'Courier New', monospace; fill: #1f2937; }
+  .text { font: 12px Segoe UI, Arial, sans-serif; fill: #374151; }
+  .muted { font: 11px Segoe UI, Arial, sans-serif; fill: #6b7280; }
+  .box { fill: #f8fafc; stroke: #64748b; stroke-width: 1.6; }
+  .fn { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.8; }
+  .over { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.8; }
+  .part { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.8; }
+  .ord { fill: #fef3c7; stroke: #d97706; stroke-width: 1.8; }
+  .arrow { stroke: #334155; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+</style>
+
+  <text x="24" y="32" class="title">Window function - the whole pattern</text>
+  <text x="24" y="54" class="muted">function(...) OVER ( PARTITION BY ...  ORDER BY ... )</text>
+
+  <!-- Anatomy row -->
+  <rect x="24" y="78" width="150" height="56" class="fn" rx="8"/>
+  <text x="40" y="102" class="label">1. function</text>
+  <text x="40" y="122" class="small">RANK() / SUM()</text>
+
+  <rect x="190" y="78" width="150" height="56" class="over" rx="8"/>
+  <text x="206" y="102" class="label">2. OVER (...)</text>
+  <text x="206" y="122" class="small">opens the window</text>
+
+  <rect x="356" y="78" width="200" height="56" class="part" rx="8"/>
+  <text x="372" y="102" class="label">3. PARTITION BY</text>
+  <text x="372" y="122" class="small">optional groups</text>
+
+  <rect x="572" y="78" width="224" height="56" class="ord" rx="8"/>
+  <text x="588" y="102" class="label">4. ORDER BY</text>
+  <text x="588" y="122" class="small">order inside group</text>
+
+  <path d="M174,106 H190" class="arrow"/>
+  <path d="M340,106 H356" class="arrow"/>
+  <path d="M556,106 H572" class="arrow"/>
+
+  <!-- Meaning strip -->
+  <rect x="24" y="154" width="772" height="78" class="box" rx="8"/>
+  <text x="40" y="178" class="label">Everyday meaning</text>
+  <text x="40" y="200" class="text">1. What to compute   2. Across which rows?   3. Restart per group (e.g. per customer)   4. Sequence for rank / running total</text>
+  <text x="40" y="220" class="muted">Example: RANK() OVER (PARTITION BY customer_id ORDER BY order_date, order_id)</text>
+
+  <!-- Visual of partitions + order -->
+  <text x="24" y="270" class="label">Picture: partitions are boxes; ORDER BY is the sequence inside each box</text>
+
+  <rect x="24" y="288" width="370" height="180" class="part" rx="10"/>
+  <text x="40" y="314" class="label">PARTITION customer 1001</text>
+  <rect x="40" y="330" width="110" height="40" class="ord" rx="5"/>
+  <text x="52" y="355" class="small">1st by date</text>
+  <rect x="170" y="330" width="110" height="40" class="ord" rx="5"/>
+  <text x="182" y="355" class="small">2nd by date</text>
+  <rect x="300" y="330" width="70" height="40" class="ord" rx="5"/>
+  <text x="312" y="355" class="small">3rd</text>
+  <path d="M150,350 H170" class="arrow"/>
+  <path d="M280,350 H300" class="arrow"/>
+  <text x="40" y="400" class="text">RANK / ROW_NUMBER / LAG / running SUM</text>
+  <text x="40" y="420" class="text">use this left-to-right order</text>
+  <text x="40" y="450" class="muted">OVER required; PARTITION optional; ORDER needed for rank/running</text>
+
+  <rect x="426" y="288" width="370" height="180" class="part" rx="10"/>
+  <text x="442" y="314" class="label">PARTITION customer 1002</text>
+  <rect x="442" y="330" width="110" height="40" class="ord" rx="5"/>
+  <text x="454" y="355" class="small">1st by date</text>
+  <rect x="572" y="330" width="110" height="40" class="ord" rx="5"/>
+  <text x="584" y="355" class="small">2nd by date</text>
+  <path d="M552,350 H572" class="arrow"/>
+  <text x="442" y="400" class="text">Calculation restarts here</text>
+  <text x="442" y="420" class="text">(new partition = new window)</text>
+  <text x="442" y="450" class="muted">Same function, separate group</text>
+</svg>
